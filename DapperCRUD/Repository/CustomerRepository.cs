@@ -14,12 +14,12 @@ namespace DapperCRUD.Repository
             _context = context;
         }
 
-        public async Task<List<Customer>> GetAllAsync()
+        public async Task<List<CustomerDto>> GetAllAsync()
         {
 
             var query = "select * from customer";
             using var connection = _context.CreateConnection();
-            var result = await connection.QueryAsync<Customer>(query);
+            var result = await connection.QueryAsync<CustomerDto>(query);
             return result.ToList();
 
         }

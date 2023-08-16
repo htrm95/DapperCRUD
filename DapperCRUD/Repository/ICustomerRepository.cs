@@ -4,7 +4,7 @@ namespace DapperCRUD.Repository
 {
     public interface ICustomerRepository
     {
-        Task<List<Customer>> GetAllAsync();
+        Task<List<CustomerDto>> GetAllAsync();
      
   
     }
