@@ -12,7 +12,7 @@ var DeleteCustomer = function (id) {
                 type: "DELETE",
                 url: "Customer/DeleteConfirmed/" + id,
                 success: function (result) {
-                    var message = "Branch has been deleted successfully.";
+                    var message = "Customer has been deleted successfully.";
                     Swal.fire({
                         title: message,
                         icon: 'info',
