@@ -52,14 +52,14 @@
                 <td>
                     <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a class="btn btn-sm btn-danger" onclick="DeleteBranch('@item.Id')">Delete</a>
+                    <a class="btn btn-sm btn-danger" onclick="DeleteCustomer('@item.Id')">Delete</a>
 @*                    <a class="btn btn-sm btn-info" onclick="DeleteBranch('@item.Id')">Adress</a>*@
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<script src="~/js/Branch/Branch_CRUD.js"></script>
+<script src="~/js/Customer/Customer_CRUD.js"></script>
 
 <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
 <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
