@@ -18,5 +18,6 @@ namespace DapperCRUD.Models
         public string Tel { get; set; }
         public string Address { get; set; }
         public string BankName { get; set; }
+        public int BankId { get; set; }
     }
 }

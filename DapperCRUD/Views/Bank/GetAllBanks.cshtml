@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DapperCRUD.Models.CustomerDto>
+﻿@model IEnumerable<DapperCRUD.Models.Bank>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,50 +16,46 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Family)
+                @Html.DisplayNameFor(model => model.Tel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Phone)
+                @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Mobile)
+                @Html.DisplayNameFor(model => model.Logo)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NationalCode)
-            </th>
+          
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
+            var PhotoImg = "/css/" + (@item.Logo ?? "noimage.jpg");
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Family)
+                    @Html.DisplayFor(modelItem => item.Tel)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NationalCode)
+                    @Html.DisplayFor(modelItem => item.Address)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
+                      <img class="w-100 lazyload radius-medium d-inline-block" src="@PhotoImg" style="object-fit: contain;"  width="50" height="50">                        
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Mobile)
-                </td>
+               
                 <td>
                     <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a class="btn btn-sm btn-danger" onclick="DeleteCustomer('@item.Id')">Delete</a>
-                    <a class="btn btn-sm btn-danger" asp-action="Address" asp-route-id="@item.Id">Addresses</a>
+                    <a class="btn btn-sm btn-danger" onclick="DeleteBranch('@item.Id')">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<script src="~/js/Customer/Customer_CRUD.js"></script>
+<script src="~/js/Branch/Branch_CRUD.js"></script>
 
 <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
 <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>

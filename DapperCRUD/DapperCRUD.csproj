@@ -10,6 +10,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Bank\Create.cshtml" />
+    <None Include="Views\Bank\Details.cshtml" />
+    <None Include="Views\Bank\GetAllBanks.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper.Extensions.NetCore" Version="4.2.2" />
     <PackageReference Include="Mapster" Version="7.3.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />

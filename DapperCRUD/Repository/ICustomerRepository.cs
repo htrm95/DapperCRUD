@@ -9,5 +9,6 @@ namespace DapperCRUD.Repository
         Task Create(Customer _Customer);
         Task Update(Customer _Customer);
         Task Delete(int id);
+        Task<List<Address>> GetAddressesAsync(int id);
     }
 }
