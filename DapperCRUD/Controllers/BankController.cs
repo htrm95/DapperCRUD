@@ -1,30 +1,32 @@
 ﻿using DapperCRUD.Models;
 using DapperCRUD.Repository;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DapperCRUD.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class BankController : ControllerBase
+
+    public class BankController : Controller
     {
 
         private IBankRepository _bankRepository;
         private readonly IWebHostEnvironment webHostEnvironment;
 
-        public BankController(IBankRepository bankRepository)
+        public BankController(IBankRepository bankRepository, IWebHostEnvironment webHostEnvironment)
         {
             _bankRepository = bankRepository;
             this.webHostEnvironment = webHostEnvironment;
         }
 
-        [HttpGet("GetAllBanks")]
+        public IFormFile Photo { get; set; }
+
         public async Task<IActionResult> GetAllBanks()
         {
             var res = await _bankRepository.GetAllAsync();
-            return Ok(res);
+            return View(res);
         }
+
         public async Task<IActionResult> Details(int id)
         {
             var result = await _bankRepository.GetByAddres(id);
@@ -94,7 +96,7 @@ namespace DapperCRUD.Controllers
             await _bankRepository.Delete(id);
             return RedirectToAction(nameof(Index));
         }
-        public IFormFile Photo { get; set; }
+
         private string ProcessUploadFile()
         {
             string uniqueFileName = null;
@@ -112,6 +114,5 @@ namespace DapperCRUD.Controllers
             }
             return uniqueFileName;
         }
-        
     }
 }
